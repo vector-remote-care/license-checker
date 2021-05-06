@@ -1,0 +1,20 @@
+name: Check Licenses
+on:
+  push:
+    branches: [master, preprod, OS-1]
+  pull_request:
+
+jobs:
+  lint:
+    name: Check licenses
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: yarn install --frozen-lockfile
+
+      - name: Check licenses
+        uses: packpacka/nodejs-license-checker@v0.1.4
+        with:
+          allow-only: 'MIT;BSD'
