@@ -288,6 +288,15 @@ describe('main tests', function() {
         });
     });
 
+    describe('should exit on given list of partial failOn licenses', function() {
+        var result={};
+        before(parseAndFailOn('failOn', '../', "MI", result));
+
+        it('should exit on MI licensed modules from results', function() {
+            assert.equal(result.exitCode, 1);
+        });
+    });
+
     describe('should parse local and handle private modules', function() {
         var output;
         before(function(done) {
