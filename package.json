@@ -1,5 +1,5 @@
 {
-  "name": "license-checker",
+  "name": "@vector-remote-care/license-checker",
   "description": "Check license info for a package",
   "author": "Dav Glass <davglass@gmail.com>",
   "version": "25.0.1",
@@ -106,7 +106,7 @@
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "http://github.com/davglass/license-checker.git"
+    "url": "http://github.com/vector-remote-care/license-checker.git"
   },
   "nyc": {
     "check-coverage": true,
