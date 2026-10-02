@@ -1,0 +1,23 @@
+name: Governance and Tagging
+
+# Validates .governance.yaml against RFC-0001, and publishes its values as repository topics on merge
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - '.governance.yaml'
+      - '.github/workflows/governance.yml'
+  push:
+    branches:
+      - master
+    paths:
+      - '.governance.yaml'
+      - '.github/workflows/governance.yml'
+
+jobs:
+  governance:
+    uses: vector-remote-care/github-actions/.github/workflows/governance.yml@master
+    secrets: inherit

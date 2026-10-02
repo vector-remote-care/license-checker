@@ -6,23 +6,11 @@ on:
   release:
     types: [created]
 
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
-
 jobs:
-  npm-publish:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      # Setup .npmrc file to publish to GitHub Packages
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "14.x"
-          registry-url: "https://npm.pkg.github.com"
-      - run: npm ci
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GPR_READ_TOKEN }}
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  publish:
+    uses: vector-remote-care/github-actions/.github/workflows/npm-publish.yml@master
+    with:
+      node_version: '14'
+      is_build_required: false
+    secrets:
+      GPR_READ_TOKEN: ${{ secrets.GPR_READ_TOKEN }}

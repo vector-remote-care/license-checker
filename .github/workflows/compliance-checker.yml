@@ -1,0 +1,14 @@
+name: Compliance Checker
+
+# Runs npm audit at high severity and fails on GPL, AGPL, JRL or AFPL licences in the dependency tree
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  compliance:
+    uses: vector-remote-care/github-actions/.github/workflows/compliance-checker.yml@master
+    secrets: inherit

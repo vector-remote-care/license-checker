@@ -1,0 +1,11 @@
+# .governance.yaml
+# Vector Remote Care — Repository Tagging Metadata
+# See RFC-0001: Unified Tagging Standard
+
+team: devops
+tier: 4
+domain_path: platform.dev-tooling.license-checker
+category: library
+data_classification: public
+last_reviewed: 2026-10-02
+reviewed_by: ryan.rosenberger
